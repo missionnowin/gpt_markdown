@@ -36,14 +36,12 @@ class CustomRb extends StatelessWidget {
                   start: spacing,
                   end: spacing,
                 ),
-                child: RadioGroup(
-                  onChanged: (value) {},
+                child:  Radio(
+                  value: value,
                   groupValue: true,
-                  child: Radio(
-                    value: value,
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  ),
-                ),
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  onChanged: (value) {},
+                )
               ),
             ),
           ),
