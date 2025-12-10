@@ -36,8 +36,9 @@ abstract class MarkdownComponent {
     BuildContext context,
     String text,
     final GptMarkdownConfig config,
-    bool includeGlobalComponents,
-  ) {
+    bool includeGlobalComponents, {
+    bool useWidgetTextStyle = true,
+  }) {
     var components =
         includeGlobalComponents
             ? config.components ?? MarkdownComponent.globalComponents
@@ -72,11 +73,14 @@ abstract class MarkdownComponent {
           return "";
         }
         if (includeGlobalComponents) {
-          var newSpans = generate(context, p0, config.copyWith(), false);
+          var newSpans = generate(context, p0, config.copyWith(), false, useWidgetTextStyle: useWidgetTextStyle);
           spans.addAll(newSpans);
           return "";
         }
-        spans.add(TextSpan(text: p0, style: config.style));
+        spans.add(TextSpan(text: p0, style: 
+          useWidgetTextStyle
+            ? config.style
+            : null));
         return "";
       },
     );
@@ -857,7 +861,7 @@ class ATagMd extends InlineMd {
     );
     var theme = GptMarkdownTheme.of(context);
     var linkTextSpan = TextSpan(
-      children: MarkdownComponent.generate(context, linkText, config, false),
+      children: MarkdownComponent.generate(context, linkText, config, false, useWidgetTextStyle: false),
       style: config.style?.copyWith(
         color: theme.linkColor,
         decorationColor: theme.linkColor,
