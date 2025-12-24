@@ -513,7 +513,7 @@ class BoldMd extends InlineMd {
   ) {
     var match = exp.firstMatch(text.trim());
     var conf = config.copyWith(
-      style:
+      style: config.boldTextStyle ??
           config.style?.copyWith(fontWeight: FontWeight.bold) ??
           const TextStyle(fontWeight: FontWeight.bold),
     );

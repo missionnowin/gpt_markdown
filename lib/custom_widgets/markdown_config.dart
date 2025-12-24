@@ -93,6 +93,7 @@ class GptMarkdownConfig {
     this.components,
     this.inlineComponents,
     this.tableBuilder,
+    this.boldTextStyle
   });
 
   /// The direction of the text.
@@ -100,6 +101,9 @@ class GptMarkdownConfig {
 
   /// The style of the text.
   final TextStyle? style;
+
+  /// The style of bold text.
+  final TextStyle? boldTextStyle;
 
   /// The alignment of the text.
   final TextAlign? textAlign;
@@ -177,6 +181,7 @@ class GptMarkdownConfig {
     final List<MarkdownComponent>? components,
     final List<MarkdownComponent>? inlineComponents,
     final TableBuilder? tableBuilder,
+    final TextStyle? boldTextStyle
   }) {
     return GptMarkdownConfig(
       style: style ?? this.style,
@@ -199,6 +204,7 @@ class GptMarkdownConfig {
       components: components ?? this.components,
       inlineComponents: inlineComponents ?? this.inlineComponents,
       tableBuilder: tableBuilder ?? this.tableBuilder,
+      boldTextStyle: boldTextStyle ?? this.boldTextStyle
     );
   }
 
