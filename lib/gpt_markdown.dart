@@ -43,6 +43,7 @@ class GptMarkdown extends StatelessWidget {
     this.tableBuilder,
     this.components,
     this.inlineComponents,
+    this.boldTextStyle,
     this.useDollarSignsForLatex = false,
   });
 
@@ -54,6 +55,9 @@ class GptMarkdown extends StatelessWidget {
 
   /// The style of the text.
   final TextStyle? style;
+
+  /// The style of the bold text.
+  final TextStyle? boldTextStyle;
 
   /// The alignment of the text.
   final TextAlign? textAlign;
@@ -207,6 +211,7 @@ class GptMarkdown extends StatelessWidget {
           components: components,
           inlineComponents: inlineComponents,
           tableBuilder: tableBuilder,
+          boldTextStyle: boldTextStyle
         ),
       ),
     );
